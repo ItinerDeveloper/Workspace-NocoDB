@@ -1,0 +1,59 @@
+{
+    "Host": {
+        "WebHostUrl": "https://localhost:5001",
+        "PathBase": "/workspace/nocodbintegration",
+        "WSUrl": "http://workspacehost/workspace/api",
+        "DebugMode": false,
+        "DisableRequestLog": false,
+        "DisableMetadata": true,
+		"CustomApiKey": "Set this to valid value",
+        "WsApiKey": "Set this to valid value",
+        "VariablePrefix": ""
+	},
+
+    "NocoDB": {
+        "APIUrl": "https://nocodb.domain.com:8686", 
+        "APIToken": "Set this to valid value", 
+        "Project": "NocoDB Project Name" 
+    },
+
+    "Hmac": {
+        "Secret": "Set this to valid value" 
+    },
+
+    "Storage": {
+        "Password": "Set this to valid value"
+    },
+
+    "Reference": {
+        "Filter": ["Email"]
+    },
+    
+    "Serilog": {
+        "Using": ["Serilog.Sinks.Seq"],
+        "LevelSwitches": {
+            "$controlSwitch": "Information"
+        },
+        "MinimumLevel": {
+            "ControlledBy": "$controlSwitch",
+            "Override": {
+                "System": "Warning",
+                "Microsoft": "Error"
+            }
+        },
+
+        "WriteTo": [{
+                "Name": "Seq",
+                "Args": {
+                    "serverUrl": "http://global_seq:5341",
+                    "apiKey": ""
+                }
+            }
+        ],
+
+        "Enrich": ["FromLogContext", "WithMachineName", "WithThreadId"],
+        "Properties": {
+            "Application": "EmailWorker"
+        }
+    }
+}

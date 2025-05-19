@@ -46,16 +46,17 @@ Install the NocoDB Integration on the same site as Itiner Workspace (e.g., `Defa
 
 ### 3.4 Configuration
 Edit the `appsettings.json` file with the following parameters:
+> 💡 For reference, see the `nocodb_integration_appsettings_sample.json` file located in the GitHub repository.
 
 #### Host Configuration
 ```json
 "Host": {
-  "WebHostUrl": "https://addonhostdnsname/workspace/emailworker",
-  "WSUrl": "http://workspacehostdnsname/workspace/api",
+  "WebHostUrl": "https://addonhost/workspace/nocodbintegration",
+  "WSUrl": "http://workspacehost/workspace/api",
   "WsApiKey": "test", // API key generated for integration user
-  "HealthCheckBaseUrl": "http://addonhostdnsname", // optional
+  "HealthCheckBaseUrl": "http://addonhost", // optional
   "CustomApiKey": "test",
-  "PathBase": "/workspace/emailworker",
+  "PathBase": "/workspace/nocodbintegration",
   "DebugMode": false,
   "DisableRequestLog": false,
   "DisableMetadata": true,
