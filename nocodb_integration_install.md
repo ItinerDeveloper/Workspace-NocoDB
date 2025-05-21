@@ -41,8 +41,12 @@ Ensure the following files exist in the `NocodbIntegration` folder:
    - .NET CLR Version: No Managed Code
    - Managed Pipeline Mode: Integrated
 
-### 3.3 Website Configuration
+### 3.3 Add IIS Web Application - Website Configuration
 Install the NocoDB Integration on the same site as Itiner Workspace (e.g., `Default Website`).
+1. Add a new web application in IIS:
+   - **Alias**: `nocodbIntegration`
+   - **Application Pool**: Select the pool created in 3.2
+   - **Physical Path**: `D:\ItinerWorkspace\NocodbIntegration`
 
 ### 3.4 Configuration
 Edit the `appsettings.json` file with the following parameters:
@@ -123,14 +127,6 @@ Edit the `appsettings.json` file with the following parameters:
   }
 }
 ```
----
-
-### 3.5 Add IIS Web Application
-1. Add a new web application in IIS:
-   - **Alias**: `nocodbIntegration`
-   - **Application Pool**: Select the pool created in 3.2
-   - **Physical Path**: `D:\ItinerWorkspace\NocodbIntegration`
-
 ---
 
 ## 4. Logging
